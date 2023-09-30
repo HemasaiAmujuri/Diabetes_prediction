@@ -1,5 +1,4 @@
 
-
 import numpy as np
 import pickle
 import streamlit as st
@@ -8,10 +7,6 @@ import streamlit as st
 loaded_model=pickle.load(open('new_trained_model.sav','rb'))
 
 def diabetes_prediction(input_data):
-    
-    print(input_data)
-    
-    #input_data=(5,166,72,19,175,25.8,0.587,51)
     
     input_data_as_numpy_array=np.asarray(input_data)
 
@@ -25,11 +20,11 @@ def diabetes_prediction(input_data):
     print(prediction)
 
     if prediction==0:
-      print('the person is non diabetic')
+      return 'the person is not diabetic'
     else:
-      print('the person is diabetic')
+      return 'the person is diabetic'
 
-#diabetes_prediction([3,126,88,41,235,39.3,0.704,27]) # this should be 0
+
 
 def main():
     # giving a title
@@ -61,5 +56,4 @@ def main():
 
 if __name__=='__main__':
     main()
-
 
